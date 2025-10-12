@@ -6,19 +6,5 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v5.0.0
-      - name: Setup Python
-        uses: actions/setup-python@v6.0.0
-      - name: Install Dependenices
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
       - name: Run Feed Generator
-        run: python feed.py
-      - name: Push Repo
-        run: |
-          git config user.name satishkolde
-          git config user.email satishkolde335@gmail.com
-          git add .
-          git commit -m "Modified feed"
-          git push
-      
+        uses: satishkolde/FeedGeneratorAction@main
